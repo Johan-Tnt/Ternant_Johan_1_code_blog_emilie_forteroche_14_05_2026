@@ -21,7 +21,7 @@ class ArticleController
      */
     public function showArticle() : void
     {
-    //Récupération de l'id
+    //Récupération de l'id  de l'article demandé.
         $id = Utils::request("id", -1);
 
         $articleManager = new ArticleManager();
