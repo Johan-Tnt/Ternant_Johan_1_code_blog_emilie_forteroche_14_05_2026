@@ -21,21 +21,29 @@ class ArticleController
      */
     public function showArticle() : void
     {
-        // Récupération de l'id de l'article demandé.
+    //Récupération de l'id
         $id = Utils::request("id", -1);
 
         $articleManager = new ArticleManager();
+
+    //Augmenter les vues
+        $articleManager->incrementViews($id);
+
+    //Récupérer article
         $article = $articleManager->getArticleById($id);
-        
-        if (!$article) {
+
+             if (!$article) {
             throw new Exception("L'article demandé n'existe pas.");
-        }
+            }
 
         $commentManager = new CommentManager();
         $comments = $commentManager->getAllCommentsByArticleId($id);
 
         $view = new View($article->getTitle());
-        $view->render("detailArticle", ['article' => $article, 'comments' => $comments]);
+        $view->render("detailArticle", [
+            'article' => $article,
+            'comments' => $comments
+        ]);
     }
 
     /**
