@@ -21,18 +21,18 @@ class ArticleController
      */
     public function showArticle() : void
     {
-    //Récupération de l'id  de l'article demandé.
+        //Récupération de l'id  de l'article demandé.
         $id = Utils::request("id", -1);
 
         $articleManager = new ArticleManager();
 
-    //Augmenter les vues
+        //Augmenter les vues
         $articleManager->incrementViews($id);
 
-    //Récupérer article
+        //Récupérer article
         $article = $articleManager->getArticleById($id);
 
-             if (!$article) {
+            if (!$article) {
             throw new Exception("L'article demandé n'existe pas.");
             }
 
