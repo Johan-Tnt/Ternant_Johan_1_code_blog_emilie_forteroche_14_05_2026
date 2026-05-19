@@ -23,7 +23,8 @@
             <a href="index.php">Articles</a>
             <a href="index.php?action=apropos">À propos</a>
             <?php 
-                //Si on est connecté, on affiche le bouton de déconnexion, sinon, on affiche le bouton de connexion : 
+                //Si on est connecté, on affiche admin (accès à la page de monitoring) 
+                //ainsi que le bouton de déconnexion, sinon, on affiche le bouton de connexion 
                 if (isset($_SESSION['user'])) { ?>
                     <a href="index.php?action=admin">Admin</a>
                     <a href="index.php?action=disconnectUser">Déconnexion</a>
