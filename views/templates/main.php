@@ -23,11 +23,13 @@
             <a href="index.php">Articles</a>
             <a href="index.php?action=apropos">À propos</a>
             <?php 
-                // Si on est connecté, on affiche le bouton de déconnexion, sinon, on affiche le bouton de connexion : 
-                if (isset($_SESSION['user'])) {
-                    echo '<a href="index.php?action=disconnectUser">Déconnexion</a>';
-                }
-                ?>
+                //Si on est connecté, on affiche le bouton de déconnexion, sinon, on affiche le bouton de connexion : 
+                if (isset($_SESSION['user'])) { ?>
+                    <a href="index.php?action=admin">Admin</a>
+                    <a href="index.php?action=disconnectUser">Déconnexion</a>
+                <?php } else { ?>
+                    <a href="index.php?action=connectionForm">Connexion</a>
+                <?php } ?>
         </nav>
         <h1>Emilie Forteroche</h1>
     </header>
@@ -37,7 +39,7 @@
     </main>
     
     <footer>
-        <p>Copyright © Emilie Forteroche 2023 - Openclassrooms - <a href="index.php?action=admin">Admin</a>
+        <p>Copyright © Emilie Forteroche 2023 - Openclassrooms
     </footer>
 
 </body>
