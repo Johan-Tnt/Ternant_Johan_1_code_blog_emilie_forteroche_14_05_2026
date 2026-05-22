@@ -16,12 +16,16 @@ class AdminController {
 
         // On récupère les articles.
         $articleManager = new ArticleManager();
-        $articles = $articleManager->getAllArticlesWithStats();
+        $sort = Utils::request("sort", "date_creation");
+        $order = Utils::request("order", "DESC");
+        $articles = $articleManager->getAllArticlesWithStats($sort, $order);
 
         // On affiche la page d'administration.
         $view = new View("Administration");
         $view->render("admin", [
-            'articles' => $articles
+            'articles' => $articles,
+            'sort' => $sort,
+            'order' => $order,
         ]);
     }
 

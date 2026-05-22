@@ -102,8 +102,20 @@ class ArticleManager extends AbstractEntityManager
 
     //Récupère tous les articles avec des statistiques pour la page admin - tableau monitoring
     //Elle retourne : l'id, le titre, la dete de publication, le nb de vues et de commentaires (calculé via COUNT)
-    public function getAllArticlesWithStats() : array 
+    public function getAllArticlesWithStats(string $sort, string $order) : array 
     {
+        //Ajout  d'une whitelist car protection contre SQL injection et paramètres invalides 
+        $allowedSort = ['title', 'views', 'nb_comments', 'date_creation'];
+        $allowedOrder = ['ASC', 'DESC'];
+        
+        if (!in_array($sort, $allowedSort)) {
+            $sort = 'date_creation';
+        }
+
+        if (!in_array($order, $allowedOrder)) {
+            $order = 'DESC';
+        }
+
         //LEFT JOIN permet de récupérer aussi les articles qui ont 0 commentaire
         $sql ="
             SELECT 
@@ -115,7 +127,7 @@ class ArticleManager extends AbstractEntityManager
             FROM article
             LEFT JOIN comment ON comment.id_article = article.id
             GROUP BY article.id
-            ORDER BY article.date_creation DESC
+            ORDER BY $sort $order
         ";
 
         $result = $this->db->query($sql);
