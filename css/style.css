@@ -377,7 +377,7 @@ a.info {
   font-size: 13px;
   margin-right: 6px;
   text-decoration: none;
-  background-color: var(--buttonColor);
+  background-color: var(--commentColor);
 }
 
 /*Effet hover sur les boutons pour améliorer la lecture*/

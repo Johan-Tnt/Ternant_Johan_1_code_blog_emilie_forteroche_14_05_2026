@@ -66,4 +66,28 @@ class CommentManager extends AbstractEntityManager
         return $result->rowCount() > 0;
     }
 
+   /**
+   * Récupère tous les commentaires avec le titre de l'article associé.
+   * @return array
+   */
+   public function getAllCommentsWithArticles() : array
+   {
+   //INNER JOIN permet de récupérer le titre de l'article lié au commentaire
+        $sql = "
+            SELECT
+                comment.id,
+                comment.pseudo,
+                comment.content,
+                comment.date_creation,
+                article.title
+            FROM comment
+            INNER JOIN article
+                ON article.id = comment.id_article
+            ORDER BY comment.date_creation DESC
+             ";
+
+        $results = $this->db->query($sql);
+
+        return $results->fetchAll();
+   }
 }
