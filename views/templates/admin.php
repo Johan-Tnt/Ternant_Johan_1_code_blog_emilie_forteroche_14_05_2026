@@ -61,7 +61,7 @@
     </tbody>
 </table>
 
-<div>
+<div class="adminManagement">
     <a class="submit" href="index.php?action=showUpdateArticleForm">
         Ajouter un article
     </a>

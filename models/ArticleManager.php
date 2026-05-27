@@ -87,7 +87,7 @@ class ArticleManager extends AbstractEntityManager
      * @param int $id : l'id de l'article à supprimer.
      * @return void
      */
-    public function deleteArticle(int $id) : void
+    public function deleteArticle(int $id): void
     {
         $sql = "DELETE FROM article WHERE id = :id";
         $this->db->query($sql, ['id' => $id]);
@@ -102,7 +102,7 @@ class ArticleManager extends AbstractEntityManager
 
     //Récupère tous les articles avec des statistiques pour la page admin - tableau monitoring
     //Elle retourne : l'id, le titre, la dete de publication, le nb de vues et de commentaires (calculé via COUNT)
-    public function getAllArticlesWithStats(string $sort, string $order) : array 
+    public function getAllArticlesWithStats(string $sort, string $order): array 
     {
         //Ajout  d'une whitelist car protection contre SQL injection et paramètres invalides 
         $allowedSort = ['title', 'views', 'nb_comments', 'date_creation'];

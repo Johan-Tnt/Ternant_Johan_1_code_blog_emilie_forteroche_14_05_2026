@@ -130,7 +130,7 @@
     }
 
     //Get pour le nombre de vues
-    public function getViews() : int
+    public function getViews(): int
     {
         return $this->views;
     }

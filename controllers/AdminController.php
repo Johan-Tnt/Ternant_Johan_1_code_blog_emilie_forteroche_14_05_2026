@@ -185,7 +185,7 @@ class AdminController {
     * Affiche la page de gestion des commentaires.
     * @return void
     */
-    public function showComments() : void 
+    public function showComments(): void 
     {
         //Vérifie que l'utilisateur est connecté
         $this->checkIfUserIsConnected();
@@ -206,7 +206,7 @@ class AdminController {
     * Supprime un commentaire.
     * @return void
     */
-    public function deleteComment() : void
+    public function deleteComment(): void
     {
 
         //Vérifie que l'utilisateur est connecté

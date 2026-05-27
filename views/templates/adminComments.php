@@ -28,8 +28,8 @@
                 </td>
                 <td>
                     <a class="submit" href="index.php?action=deleteComment&id=<?= $comment['id'] ?>"
-                    <?= Utils::askConfirmation("Supprimer ce commentaire")  ?>>
-                    Supprimer
+                        <?= Utils::askConfirmation("Supprimer ce commentaire")  ?>>
+                        Supprimer
                     </a>
                 </td>
             </tr>
