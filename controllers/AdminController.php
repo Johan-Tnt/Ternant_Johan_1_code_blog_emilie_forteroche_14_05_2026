@@ -217,12 +217,7 @@ class AdminController {
 
         //Récupération du commentaire
         $commentManager = new CommentManager();
-        $comment = $commentManager->getCommentById($id);
-
-        //Suppression du commentaire s'il existe
-        if ($comment) {
-            $commentManager->deleteComment($comment);
-        }
+        $commentManager->deleteComment($id);
 
         //Redirection vers la page de gestion des commentaires
         Utils::redirect("showComments");
